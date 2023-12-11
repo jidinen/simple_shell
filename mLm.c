@@ -7,27 +7,27 @@
  *@n: the amount of bytes to be filled
  *Return: (s) a pointer to the memory area s
  */
-char *_memset(char *s, char b, unsigned int n)
+char *_memset(char *si, char b, unsigned int n)
 {
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
+		si[i] = b;
+	return (si);
 }
 
 /**
  * ffree - frees a string of strings
  * @pp: string of strings
  */
-void ffree(char **pp)
+void ffree(char **ppx)
 {
-	char **a = pp;
+	char **a = ppx;
 
-	if (!pp)
+	if (!ppx)
 		return;
-	while (*pp)
-		free(*pp++);
+	while (*ppx)
+		free(*ppx++);
 	free(a);
 }
 
@@ -39,16 +39,16 @@ void ffree(char **pp)
  *
  * Return: pointer to da ol'block nameen.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *ptx, unsigned int old_size, unsigned int new_size)
 {
 	char *p;
 
-	if (!ptr)
+	if (!ptx)
 		return (malloc(new_size));
 	if (!new_size)
-		return (free(ptr), NULL);
+		return (free(ptx), NULL);
 	if (new_size == old_size)
-		return (ptr);
+		return (ptx);
 
 	p = malloc(new_size);
 	if (!p)
@@ -56,7 +56,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	old_size = old_size < new_size ? old_size : new_size;
 	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
-	free(ptr);
+		p[old_size] = ((char *)ptx)[old_size];
+	free(ptx);
 	return (p);
 }

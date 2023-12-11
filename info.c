@@ -2,9 +2,9 @@
 
 /**
  * clear_info - initializes info_t struct
- * @info: struct address
+ * @info: struct addrss
  */
-void clear_info(info_t *info)
+void clear_info(info_x *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -13,11 +13,11 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - initializes info_t struct
- * @info: struct address
- * @av: argument vector
+ * set_info - initializes info_
+ * @info: struct addrss
+ * @av: argument vc
  */
-void set_info(info_t *info, char **av)
+void set_info(info_x *info, char **av)
 {
 	int i = 0;
 
@@ -49,7 +49,7 @@ void set_info(info_t *info, char **av)
  * @info: struct address
  * @all: true if freeing all fields
  */
-void free_info(info_t *info, int all)
+void free_info(info_x *info, int all)
 {
 	ffree(info->argv);
 	info->argv = NULL;
