@@ -2,17 +2,17 @@
 
 /**
  * interactive - returns true if shell is interactive mode
- * @info: struct stoeres address
+ * @info: struct address
  *
  * Return: 1 if interactive mode, 0 otherwise
  */
-int interactive(info_x *info)
+int interactive(info_t *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
- * is_delim - checks for delimeter
+ * is_delim - checks if character is a delimeter
  * @c: the char to check
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
